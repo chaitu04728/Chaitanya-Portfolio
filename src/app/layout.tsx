@@ -25,7 +25,7 @@ const jetbrainsMono = localFont({
   display: "swap",
 });
 
-const title = `${PROFILE.name} | Site Reliability Engineer`;
+const title = `${PROFILE.name} | ${PROFILE.role}`;
 const description = `${PROFILE.name} - ${PROFILE.role} at ${PROFILE.company}. Portfolio: skills, projects, certifications, experience and achievements.`;
 
 export const metadata: Metadata = {

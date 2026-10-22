@@ -13,19 +13,33 @@ export default function Certifications() {
           </p>
         </div>
         <ol className="certs-list" aria-label="Certifications">
-          {CERTIFICATIONS.map((c, i) => (
-            <li key={c.id} className="rv" style={{ ["--i" as string]: Math.min(i, 5) }}>
-              <a className="cert-row" href={c.url} target="_blank" rel="noopener noreferrer">
+          {CERTIFICATIONS.map((c, i) => {
+            const content = (
+              <>
                 <span className="cert-idx mono">{c.index}</span>
                 <span className="cert-title">
                   {c.title}
-                  <span className="cert-sr sr-only-x"> (opens in new tab)</span>
+                  {c.issuer ? <span className="cert-issuer mono"> · {c.issuer}</span> : null}
+                  {c.url && <span className="cert-sr sr-only-x"> (opens in new tab)</span>}
                 </span>
                 <span className="cert-date mono">{c.date}</span>
-                <span className="cert-arrow" aria-hidden="true">↗</span>
-              </a>
-            </li>
-          ))}
+                {c.url && <span className="cert-arrow" aria-hidden="true">↗</span>}
+              </>
+            );
+            return (
+              <li key={c.id} className="rv" style={{ ["--i" as string]: Math.min(i, 5) }}>
+                {c.url ? (
+                  <a className="cert-row" href={c.url} target="_blank" rel="noopener noreferrer">
+                    {content}
+                  </a>
+                ) : (
+                  <div className="cert-row cert-row-static">
+                    {content}
+                  </div>
+                )}
+              </li>
+            );
+          })}
         </ol>
       </div>
       <style>{`
@@ -43,8 +57,9 @@ export default function Certifications() {
         .cert-row:focus-visible { outline-offset: -3px; outline-color: var(--faint); border-radius: 0; }
         .cert-idx { font-size: 12px; color: var(--mute); transition: color 0.5s var(--ease); }
         .cert-title { font-size: clamp(18px, 2vw, 26px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.15; }
+        .cert-issuer { font-size: 13px; font-weight: 400; color: var(--mute); transition: color 0.5s var(--ease); }
         .cert-date { font-size: 12px; color: var(--mute); white-space: nowrap; transition: color 0.5s var(--ease); }
-        .cert-row:hover .cert-idx, .cert-row:hover .cert-date, .cert-row:focus-visible .cert-idx, .cert-row:focus-visible .cert-date { color: rgba(255,255,255,.7); }
+        .cert-row:hover .cert-idx, .cert-row:hover .cert-date, .cert-row:hover .cert-issuer, .cert-row:focus-visible .cert-idx, .cert-row:focus-visible .cert-date, .cert-row:focus-visible .cert-issuer { color: rgba(255,255,255,.7); }
         .cert-arrow { font-size: 20px; opacity: 0; transform: translateX(-14px); transition: opacity 0.5s var(--ease), transform 0.5s var(--ease); }
         .cert-row:hover .cert-arrow, .cert-row:focus-visible .cert-arrow { opacity: 1; transform: none; }
         @media (max-width: 860px) {

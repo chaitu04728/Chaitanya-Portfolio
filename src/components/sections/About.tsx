@@ -5,8 +5,8 @@ import { PROFILE } from "@/lib/data";
 
 const FACTS: { k: string; v: string; href?: string }[] = [
   { k: "Current role", v: `${PROFILE.role}, ${PROFILE.company}` },
-  { k: "Education", v: "MBA in Business Analytics, BITS Pilani (pursuing)" },
-  { k: "", v: "PG Diploma in Advanced Cloud Computing and DevOps, IIT Roorkee" },
+  { k: "Experience", v: "4.8 years designing scalable web apps" },
+  { k: "Education", v: "B. Tech in CSE, Presidency University Bangalore (2022)" },
   { k: "Location", v: PROFILE.location },
   { k: "Email", v: PROFILE.email, href: `mailto:${PROFILE.email}` },
   { k: "Phone", v: PROFILE.phone, href: PROFILE.phoneHref },
@@ -17,12 +17,12 @@ export default function About() {
     <section id="about" className="section about" aria-labelledby="about-heading">
       <div className="wrap about-grid">
         <div className="about-l">
-          <SectionHeading id="about" lead="Hi, I'm" accent="Ajay." />
+          <SectionHeading id="about" lead="Hi, I'm" accent={`${PROFILE.firstName}.`} />
           <p className="about-p rv" style={{ ["--i" as string]: 1 }}>
             {PROFILE.resumeSummary}
           </p>
           <div className="about-btns rv" style={{ ["--i" as string]: 2 }}>
-            <Button href={PROFILE.resume} download variant="primary">Résumé</Button>
+            <Button href={PROFILE.resume} download="Chaitanya-Kumar-Batchu-Resume.pdf" external variant="primary">Résumé</Button>
             <Button href={PROFILE.github} external variant="secondary">GitHub</Button>
             <Button href={PROFILE.linkedin} external variant="secondary">LinkedIn</Button>
           </div>
@@ -44,7 +44,7 @@ export default function About() {
           </dl>
           <figure className="about-q rv" style={{ ["--i" as string]: 6 }}>
             <blockquote>
-              Built GitHub Actions CI/CD and an OpenTelemetry observability stack <span className="accent">from scratch.</span>
+              Engineered WCAG 2.1 AA compliant citizen portal serving <span className="accent">1M+ monthly users.</span>
             </blockquote>
           </figure>
         </aside>

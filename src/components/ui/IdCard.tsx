@@ -18,14 +18,14 @@ function bars(seed: string): { x: number; w: number }[] {
   }
   return out;
 }
-const BARS = bars("AJAY-B-SRE");
+const BARS = bars("CHAITANYA-FULLSTACK");
 
 const BACK_LINES = [
-  "Systems Engineer III (SRE) at LexisNexis Risk Solutions",
-  "PG Diploma in Advanced Cloud Computing and DevOps, IIT Roorkee",
-  "MBA in Business Analytics at BITS Pilani (pursuing)",
-  "Projects: Micro-blogging platform, Alexa Tourist Assistant, Home Automation using IoT",
-  "Spotlight Award and Inspiration Beacon Award",
+  "Full Stack Developer at IBM (Client: Nestle, Europe)",
+  "4.8 years designing scalable enterprise web apps",
+  "B. Tech in Computer Science, Presidency University Bangalore",
+  "Projects: SSMMA Product System, Web Dev Explorer, AnalyzeIT",
+  "AWS Cloud Practitioner, Azure Fundamentals, GitHub Copilot",
 ];
 
 export default function IdCard() {
@@ -98,7 +98,7 @@ export default function IdCard() {
               <span key={k}>
                 {Array.from({ length: 6 }).map((_, i) => (
                   <b key={i}>
-                    AJAY B <i>·</i> SYSTEMS ENGINEER III (SRE) <i>·</i>
+                    {PROFILE.name.toUpperCase()} <i>·</i> {PROFILE.role.toUpperCase()} <i>·</i>
                   </b>
                 ))}
               </span>
@@ -131,12 +131,12 @@ export default function IdCard() {
             <div className="idc-face idc-front" aria-hidden={flipped}>
               <div className="idc-band">
                 <span className="idc-slot" />
-                <span className="mono">SRE PROFILE</span>
+                <span className="mono">FULL STACK PROFILE</span>
               </div>
               <div className="idc-photo">
                 <div className="idc-halo" />
                 <div className="idc-ring">
-                  <Image src={asset("/portrait-bust.webp")} alt={`Portrait of ${PROFILE.name}`} width={120} height={150} sizes="120px" priority={false} />
+                  <Image src={asset("/PIC.png")} alt={`Portrait of ${PROFILE.name}`} width={128} height={156} sizes="128px" priority={false} />
                 </div>
               </div>
               <p className="idc-name">{PROFILE.name}</p>

@@ -52,8 +52,8 @@ export default function Contact() {
 
   const links = [
     { label: "Phone", text: PROFILE.phone, href: PROFILE.phoneHref, ext: false },
-    { label: "GitHub", text: "github.com/ajaysrinic", href: PROFILE.github, ext: true },
-    { label: "LinkedIn", text: "linkedin.com/in/ajaysrinic", href: PROFILE.linkedin, ext: true },
+    { label: "GitHub", text: PROFILE.github.replace(/^https?:\/\//, ""), href: PROFILE.github, ext: true },
+    { label: "LinkedIn", text: PROFILE.linkedin.replace(/^https?:\/\/(www\.)?/, ""), href: PROFILE.linkedin, ext: true },
   ];
 
   return (

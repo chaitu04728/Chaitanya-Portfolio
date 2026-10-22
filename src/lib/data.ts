@@ -1,26 +1,25 @@
-/* Single source of truth for all site content. Every fact comes from the CV (cv.pdf),
-   except the MBA at BITS Pilani and the Chennai location, which were supplied by the site owner. */
+/* Single source of truth for all site content. Every fact comes from Chaitanya Kumar Batchu's CV. */
 
 import { asset } from "./asset";
 
 export const PROFILE = {
-  name: "Ajay B",
-  firstName: "Ajay",
-  initials: "AB",
-  role: "Systems Engineer III (SRE)",
-  heroTitle: "Site Reliability Engineer",
-  dept: "SRE",
-  company: "LexisNexis Risk Solutions",
-  since: "Sep 2024",
-  location: "Chennai",
-  email: "ajaybobbili7@gmail.com",
-  phone: "+91 9384106137",
-  phoneHref: "tel:+919384106137",
-  github: "https://github.com/ajaysrinic/",
-  linkedin: "https://www.linkedin.com/in/ajaysrinic/",
-  resume: asset("/cv.pdf"),
+  name: "Chaitanya Kumar Batchu",
+  firstName: "Chaitanya",
+  initials: "CK",
+  role: "Full Stack Developer",
+  heroTitle: "Full Stack Developer",
+  dept: "Full Stack Engineering",
+  company: "IBM",
+  since: "Jul 2022",
+  location: "Hyderabad, Telangana",
+  email: "batchuchaitanyakumar356@gmail.com",
+  phone: "+91 9032458334",
+  phoneHref: "tel:+919032458334",
+  github: "https://github.com/chaitu04728",
+  linkedin: "https://www.linkedin.com/in/batchu-chaitanya-kumar/",
+  resume: asset("/Chaitanya-Kumar-Batchu-Resume.pdf"),
   resumeSummary:
-    "Systems Engineer III (SRE) at LexisNexis Risk Solutions, building GitHub Actions CI/CD, OpenTelemetry observability and cloud automation. Previously a DevOps Engineer at TCS, running Linux production servers and Azure environments. Holds a PG Diploma in Advanced Cloud Computing and DevOps from IIT Roorkee and is pursuing an MBA in Business Analytics at BITS Pilani.",
+    "Full Stack Developer with 4.8 years of experience designing and delivering scalable, secure enterprise web applications using Next.js, React, NestJS, TypeScript, and PostgreSQL. Proven track record of building high-performance solutions across government, insurance, and retail/consumer domains, including a WCAG 2.1 AA–compliant citizen portal serving 1M+ monthly users. Experienced in AWS, Azure DevOps, CI/CD, and AI-assisted development, with a strong focus on performance, accessibility, and scalable system architecture.",
 } as const;
 
 export type SectionId = "about" | "skills" | "work" | "certifications" | "experience" | "achievements" | "contact";
@@ -48,7 +47,7 @@ export const NAV: NavItem[] = (["about", "skills", "work", "experience", "achiev
 }));
 
 /* ---------- Skills ---------- */
-export type SkillFamily = "Languages" | "Tools" | "Databases" | "Observability" | "Platforms";
+export type SkillFamily = "Frontend" | "Backend" | "Languages" | "AI & Cloud" | "Tools & Practices";
 
 export interface Skill {
   /** Logo key for <TechLogo name=... /> (brand file in /public/logos or a concept icon). */
@@ -68,49 +67,59 @@ export interface SkillGroup {
 }
 
 type RawSkill = Omit<Skill, "number" | "family">;
-/* Ordered by recency: skills used in the latest role (LexisNexis Risk Solutions) first, then TCS, then the rest.
-   Families follow the same order. Git-SVN, Gitleaks, TruffleHog and GitHub REST API / GitHub Apps were added by the site owner. */
+
 const RAW: Record<SkillFamily, RawSkill[]> = {
-  Tools: [
-    { logo: "github-actions", name: "GitHub Actions", symbol: "Ga", usedIn: ["Build, packaging, release and deployment workflows, LexisNexis Risk Solutions", "CI/CD for Windows IIS-based .NET apps (PRDE project)"] },
-    { logo: "github", name: "GitHub", symbol: "Gh", usedIn: ["Enterprise governance: branch protection, PR validation, secret scanning, LexisNexis Risk Solutions"] },
-    { logo: "gitsvn", name: "Git-SVN (git-svn)", symbol: "Gs", usedIn: ["Latest role, LexisNexis Risk Solutions"] },
-    { logo: "gitleaks", name: "Gitleaks", symbol: "Gl", usedIn: ["Latest role, LexisNexis Risk Solutions"] },
-    { logo: "trufflehog", name: "TruffleHog", symbol: "Th", usedIn: ["Latest role, LexisNexis Risk Solutions"] },
-    { logo: "githubapi", name: "GitHub REST API / GitHub Apps", symbol: "Ap", usedIn: ["Latest role, LexisNexis Risk Solutions"] },
-    { logo: "svn", name: "SVN", symbol: "Sv", usedIn: ["Led the SVN to GitHub migration, LexisNexis Risk Solutions"] },
-    { logo: "jenkins", name: "Jenkins", symbol: "Je", usedIn: ["Integrated with the PRDE CI/CD pipelines, LexisNexis Risk Solutions", "CI/CD with Jenkins and Git, TCS"] },
-    { logo: "jira", name: "JIRA", symbol: "Ji", usedIn: ["Jira-GitHub traceability, LexisNexis Risk Solutions"] },
-    { logo: "terraform", name: "Terraform", symbol: "Tf", usedIn: ["Terraform Certified Associate, Nov 2025"] },
-    { logo: "azure-devops", name: "Azure DevOps", symbol: "Ad" },
-    { logo: "ansible", name: "Ansible", symbol: "An" },
-    { logo: "confluence", name: "Confluence", symbol: "Cf" },
+  Frontend: [
+    { logo: "nextjs", name: "Next.js", symbol: "Nx", usedIn: ["Citizen-facing portal serving 1M+ monthly users (Ministry of Transportation)", "AnalyzeIT enterprise sales analytics web app (Nestle)", "SSMMA & Web Dev Explorer platforms"] },
+    { logo: "react", name: "React.js", symbol: "Re", usedIn: ["Core component architecture across Nestle AnalyzeIT and Ontario citizen portals", "WCAG 2.1 AA accessible UI engineering"] },
+    { logo: "typescript", name: "TypeScript", symbol: "Ts", usedIn: ["Typed domain models, scalable state management, and strict contract verification"] },
+    { logo: "redux", name: "Redux", symbol: "Rx", usedIn: ["Predictable global state management in high-density data applications"] },
+    { logo: "reactquery", name: "React Query", symbol: "Rq", usedIn: ["Server-state caching, background data revalidation, and optimistic updates"] },
+    { logo: "tailwindcss", name: "Tailwind CSS", symbol: "Tw", usedIn: ["Responsive layouts and design token utility styling on Web Dev Explorer"] },
+    { logo: "styledcomponents", name: "Styled Components", symbol: "Sc", usedIn: ["Scoped component styling and CSS-in-JS architecture"] },
+    { logo: "wcag", name: "WCAG 2.1 AA", symbol: "Wc", usedIn: ["Lighthouse accessibility audits, semantic HTML, and ARIA roles passing government audits"] },
   ],
-  Observability: [
-    { logo: "opentelemetry", name: "OpenTelemetry", symbol: "Ot", usedIn: ["Built a complete OTEL observability stack from scratch, LexisNexis Risk Solutions"] },
-    { logo: "grafana", name: "Grafana", symbol: "Gr", usedIn: ["OTEL Collector, Grafana and Elasticsearch stack for metrics, logs and traces, LexisNexis Risk Solutions"] },
-    { logo: "dynatrace", name: "Dynatrace", symbol: "Dt", usedIn: ["Proactive monitoring to improve server uptime, TCS"] },
-    { logo: "kibana", name: "Kibana", symbol: "Ki" },
-    { logo: "prometheus", name: "Prometheus", symbol: "Pr" },
+  Backend: [
+    { logo: "nestjs", name: "NestJS", symbol: "Ns", usedIn: ["Scalable enterprise microservices and modular backend architecture"] },
+    { logo: "nodejs", name: "Node.js", symbol: "No", usedIn: ["RESTful APIs powering internal enterprise workflows at Suncorp Insurance"] },
+    { logo: "postgresql", name: "PostgreSQL", symbol: "Pg", usedIn: ["Relational data modeling, indexing, and complex queries across enterprise systems"] },
+    { logo: "redis", name: "Redis", symbol: "Rd", usedIn: ["In-memory session storage, caching layer, and high-speed data retrieval"] },
+    { logo: "prisma", name: "Prisma", symbol: "Pm", usedIn: ["Type-safe database ORM and migrations on SSMMA Product Management System"] },
+    { logo: "restapi", name: "RESTful API", symbol: "Ra", usedIn: ["Enterprise workflows at Suncorp & survey platform real-time synchronization at Nestle"] },
+    { logo: "rbac", name: "RBAC & UAM", symbol: "Rb", usedIn: ["Designed end-to-end RBAC and User Access Management across enterprise modules"] },
+    { logo: "websockets", name: "WebSockets", symbol: "Ws", usedIn: ["Real-time bi-directional synchronization and event communication"] },
+    { logo: "jwt", name: "JWT Auth", symbol: "Jw", usedIn: ["Stateless token authentication and secure role-based authorization"] },
+    { logo: "rabbitmq", name: "RabbitMQ", symbol: "Mq", usedIn: ["Asynchronous message queues, bulk uploads, and notification processing"] },
   ],
   Languages: [
-    { logo: "python", name: "Python", symbol: "Py", usedIn: ["Python-based test apps for OpenTelemetry workloads and database latency, LexisNexis Risk Solutions", "Micro-blogging Web Application Platform (Python, Flask)"] },
-    { logo: "powershell", name: "PowerShell", symbol: "Ps", usedIn: ["Release reporting, deployment notifications and workflow monitoring automation, LexisNexis Risk Solutions"] },
-    { logo: "sql", name: "SQL", symbol: "Sq", usedIn: ["Managed SQL databases such as MySQL, TCS"] },
-    { logo: "bash", name: "Bash Scripting", symbol: "Ba" },
+    { logo: "javascript", name: "JavaScript (ES6+)", symbol: "Js", usedIn: ["Modern async patterns, DOM APIs, and core full-stack runtime logic"] },
+    { logo: "html5", name: "HTML5", symbol: "Ht", usedIn: ["Semantic HTML structure ensuring complete assistive-technology support"] },
+    { logo: "css3", name: "CSS3 / SCSS", symbol: "Cs", usedIn: ["Responsive styling, CSS grid/flexbox, animations, and preprocessors"] },
+    { logo: "java", name: "Java", symbol: "Jv", usedIn: ["StackRoute Velocity Program, enterprise backend services, and Spring Boot"] },
+    { logo: "python", name: "Python", symbol: "Py", usedIn: ["Data manipulation, automation scripts, and regression calculations"] },
+    { logo: "sql", name: "SQL", symbol: "Sq", usedIn: ["Database modeling, schema design, and SQL Beginner to Advance certification"] },
   ],
-  Platforms: [
-    { logo: "docker", name: "Docker", symbol: "Do", usedIn: ["Integrated in GitHub Actions workflows, LexisNexis Risk Solutions"] },
-    { logo: "azure", name: "Azure", symbol: "Az", usedIn: ["Optimized Azure environments, $2500 CAD/month saved, TCS", "Microsoft Azure AZ 900, Mar 2023"] },
-    { logo: "linux", name: "Linux", symbol: "Li", usedIn: ["Managed Linux-based production servers 24x7, 20% uptime increase, TCS"] },
-    { logo: "aws", name: "AWS", symbol: "Aw", usedIn: ["Micro-blogging platform (Cognito, RDS, Lambda, IAM, CloudWatch)", "Alexa Tourist Assistant (AWS Lambda)", "AWS Cloud Practitioner, Dec 2022"] },
-    { logo: "kubernetes", name: "Kubernetes", symbol: "Ku" },
-    { logo: "servicenow", name: "ServiceNow", symbol: "Sn" },
+  "AI & Cloud": [
+    { logo: "copilot", name: "GitHub Copilot", symbol: "Cp", usedIn: ["AI-assisted software engineering; Certified GitHub Copilot 2025"] },
+    { logo: "claude", name: "Claude CLI", symbol: "Cl", usedIn: ["Autonomous coding workflows and intelligent codebase management"] },
+    { logo: "openai", name: "OpenAI API", symbol: "Oa", usedIn: ["Integrating intelligent models and LLM completions into web solutions"] },
+    { logo: "vercel", name: "Vercel AI SDK", symbol: "Ai", usedIn: ["Streaming AI interfaces and conversational full-stack features"] },
+    { logo: "aws", name: "AWS", symbol: "Aw", usedIn: ["S3, Amplify, App Runner, Lambda, IAM, CloudFront, API Gateway; AWS Cloud Practitioner 2023"] },
+    { logo: "azure", name: "Azure", symbol: "Az", usedIn: ["Azure AD SSO (MSAL) integration; Azure Fundamentals 2022"] },
+    { logo: "docker", name: "Docker", symbol: "Do", usedIn: ["Containerized development environments and multi-stage production builds"] },
+    { logo: "kubernetes", name: "Kubernetes", symbol: "Ku", usedIn: ["Container orchestration, service scaling, and cloud deployment"] },
+    { logo: "github-actions", name: "CI/CD & GitHub Actions", symbol: "Ga", usedIn: ["Automated testing, linting, build pipelines, and production deployments"] },
   ],
-  Databases: [
-    { logo: "mysql", name: "MySQL", symbol: "My", usedIn: ["Managed SQL databases, TCS", "Oracle MySQL Implementation Associate, Jul 2025"] },
-    { logo: "mongodb", name: "MongoDB", symbol: "Mo", usedIn: ["Managed NoSQL stores, TCS"] },
-    { logo: "postgresql", name: "PostgreSQL", symbol: "Pg" },
+  "Tools & Practices": [
+    { logo: "postman", name: "Postman", symbol: "Po", usedIn: ["REST API endpoint testing, validation, and automated collection suites"] },
+    { logo: "swagger", name: "Swagger / OpenAPI", symbol: "Sw", usedIn: ["Interactive API documentation and schema specification"] },
+    { logo: "lighthouse", name: "Lighthouse", symbol: "Lh", usedIn: ["Performance optimization and WCAG accessibility score auditing"] },
+    { logo: "git", name: "Git & GitHub", symbol: "Gh", usedIn: ["Version control, branch protection rules, and team pull request reviews"] },
+    { logo: "jira", name: "Jira & Confluence", symbol: "Ji", usedIn: ["Agile/Scrum sprint cycles, user story estimation, and technical documentation"] },
+    { logo: "azure-devops", name: "Azure DevOps", symbol: "Ad", usedIn: ["DevOps Implementation certification 2025, work item tracking, and CI/CD"] },
+    { logo: "servicenow", name: "ServiceNow", symbol: "Sn", usedIn: ["Triaging production incidents and tracking change requests (CRs) for deployments"] },
+    { logo: "dynatrace", name: "Dynatrace", symbol: "Dt", usedIn: ["Server and URL health monitoring, identifying issues proactively before user impact"] },
+    { logo: "powershell", name: "PowerShell & Windows Scheduler", symbol: "Ps", usedIn: ["Automating operational jobs and scheduled workflows, reducing manual effort by ~50%"] },
   ],
 };
 
@@ -133,33 +142,49 @@ export interface ExperienceItem {
 }
 export const EXPERIENCE: ExperienceItem[] = [
   {
-    id: "lnrs",
-    role: "Systems Engineer – III (SRE)",
-    company: "LexisNexis Risk Solutions",
-    period: "Sep 2024 – Present",
+    id: "ibm-nestle",
+    role: "Package Consultant / Full Stack Developer",
+    company: "IBM (Client: Nestle, Europe)",
+    period: "Jun 2026 – Present",
     bullets: [
-      "Led the migration of enterprise applications from SVN to GitHub, designing migration strategies, repository structures, branching models and governance standards.",
-      "Architected GitHub Actions workflows integrating Docker, JFrog Artifactory, GitSync and self-hosted runners to automate build, packaging, release and deployment.",
-      "Implemented GitHub governance controls: branch protection, PR validation, code review automation, secret scanning and Jira-GitHub traceability.",
-      "Built operational automation for release reporting, deployment notifications and workflow monitoring using GitHub Actions, PowerShell and Microsoft Teams integrations.",
-      "Developed end-to-end CI/CD pipelines using GitHub Actions for Windows IIS-based .NET applications under the PRDE project, integrating JFrog Artifactory and Jenkins, achieving a 70% reduction in deployment time.",
-      "Designed and deployed a complete OpenTelemetry (OTEL) observability stack from scratch, integrating OTEL Collector, Grafana and Elasticsearch for centralized metrics, logs and traces.",
-      "Developed Python-based test applications to simulate workloads, perform database queries and monitor database performance and latency under load in OpenTelemetry.",
-      "Built custom OpenSearch ELK dashboards to visualize application health, system metrics and telemetry data.",
+      "Developed AnalyzeIT, an enterprise web application using Next.js, React, TypeScript, and Ant Design to analyze high-density consumer product sales and customer sentiment data.",
+      "Built a client-side analytics engine supporting all types of analysis and regression, with 10+ interactive Chart.js visualizations for business reporting.",
+      "Architected the application's core state management and typed domain model, enabling a scalable 9+ tab workflow for reports, datasets, and statistical analyses.",
+      "Integrated Excel import/export (SheetJS) and REST APIs with an external survey platform, implementing robust data mapping and efficient handling of large-scale datasets with real-time synchronization.",
+      "Implemented Azure AD SSO (MSAL) and deployed the application to a Windows/IIS environment using iisnode.",
     ],
   },
   {
-    id: "tcs",
-    role: "DevOps Engineer",
-    company: "Tata Consultancy Services (TCS)",
-    period: "May 2021 – Aug 2024",
+    id: "wipro-ontario",
+    role: "Full Stack Developer (Project Engineer)",
+    company: "Wipro Limited (Client: Ministry of Transportation, Ontario)",
+    period: "Feb 2024 – May 2026",
     bullets: [
-      "Streamlined FOREX currency conversion infrastructure for a key banking client and directed administration of the Payment Hub for Rappi, a top food delivery app in Canada.",
-      "Managed Linux-based production servers in a 24x7 live environment, resulting in a 20% increase in uptime.",
-      "Introduced CI/CD best practices with Jenkins and Git, reducing deployment times by 40%.",
-      "Optimized Azure cloud environments through automation, monitoring and scaling, leading to $2500 CAD/month in cost savings.",
-      "Used Dynatrace and Azure Application Insights for proactive monitoring and analysis to improve server uptime.",
-      "Managed SQL databases such as MySQL and NoSQL stores like MongoDB in an administrative capacity.",
+      "Built citizen-facing and internal Next.js portals from scratch used by 1M+ monthly users across Ontario using SSR and middleware-based architecture.",
+      "Designed and implemented end-to-end RBAC and User Access Management (UAM), securing authorization across multiple enterprise modules.",
+      "Raised Lighthouse accessibility scores by engineering WCAG 2.1 AA compliant React components with semantic HTML and ARIA roles, enabling full assistive-technology support and passing government compliance audits.",
+    ],
+  },
+  {
+    id: "wipro-suncorp",
+    role: "Backend Developer (Project Engineer)",
+    company: "Wipro Limited (Client: Suncorp Insurance, Australia)",
+    period: "Jul 2022 – Jan 2024",
+    bullets: [
+      "Developed and maintained Node.js RESTful APIs powering internal enterprise workflows for Suncorp's operations team across production environments and maintaining structured logs using winston.",
+      "Triaged and resolved production incidents via ServiceNow, tracking change requests (CRs) for deployments.",
+      "Monitored application health and server performance using Dynatrace (server & URL monitoring), identifying issues proactively before user impact.",
+      "Automated recurring operational jobs and scheduled workflows using Control-M, Windows Task Scheduler, and PowerShell scripts, reducing manual monitoring effort by ~50% and eliminating repetitive daily operational checks across production environments.",
+    ],
+  },
+  {
+    id: "wipro-velocity",
+    role: "Full Stack Developer Trainee (Velocity Program)",
+    company: "Wipro Limited (StackRoute)",
+    period: "Jan 2022 – Jun 2022",
+    bullets: [
+      "Completed 6-month intensive Java Full Stack training focused on enterprise-grade application development.",
+      "Built end-to-end applications using Java, Spring Boot, MySQL, React, CSS, and JavaScript.",
     ],
   },
 ];
@@ -170,13 +195,16 @@ export interface EducationItem {
   degree: string;
   place?: string;
   period?: string;
-  /** Currently pursuing (no end date). */
   pursuing?: boolean;
 }
 export const EDUCATION: EducationItem[] = [
-  { id: "bits", school: "BITS Pilani", degree: "MBA in Business Analytics", pursuing: true },
-  { id: "iitr", school: "Indian Institute of Technology (IIT) Roorkee", degree: "PG Diploma in Advanced Cloud Computing and DevOps", place: "Online", period: "Sep 2023" },
-  { id: "anna", school: "Anna University (Prathyusha Engineering College)", degree: "Bachelor of Engineering - Computer Science", place: "Chennai", period: "May 2021" },
+  {
+    id: "presidency",
+    school: "Presidency University Bangalore",
+    degree: "B. Tech in Computer Science",
+    place: "Bangalore",
+    period: "2022",
+  },
 ];
 
 /** Education + work merged into one path, oldest first. Experience section renders this. */
@@ -210,11 +238,11 @@ const fromJob = (e: ExperienceItem): TimelineItem => ({
   bullets: e.bullets,
 });
 export const TIMELINE: TimelineItem[] = [
-  fromEdu(edu("anna")),
-  fromJob(job("tcs")),
-  fromEdu(edu("iitr")),
-  fromJob(job("lnrs")),
-  fromEdu(edu("bits")),
+  fromEdu(edu("presidency")),
+  fromJob(job("wipro-velocity")),
+  fromJob(job("wipro-suncorp")),
+  fromJob(job("wipro-ontario")),
+  fromJob(job("ibm-nestle")),
 ];
 
 /* ---------- Projects ---------- */
@@ -238,99 +266,108 @@ export interface Project {
   tech: ProjectTech[];
   link?: { href: string; label: string };
   /** Which illustrative mini-UI to draw. */
-  visual: "blog" | "voice" | "iot";
+  visual: "ssmma" | "explorer" | "analyzeit";
 }
 export const PROJECTS: Project[] = [
   {
-    id: "microblog",
+    id: "ssmma",
     number: "01",
-    title: "Micro-blogging Web Application Platform",
-    date: "Feb 2023",
-    kicker: "Cloud-native web app",
+    title: "SSMMA — Product Management System",
+    date: "2024",
+    kicker: "Full-stack enterprise e-commerce platform",
     description:
-      "Developed a cloud-native web application using Python, Flask, and Gitpod, implementing backend services and database-driven functionality.",
+      "Full-stack product management platform with role-based access control (RBAC), cart and order management, bulk product uploads, PDF catalog generation, email notifications, and JWT authentication.",
     bullets: [
-      "Developed a cloud-native web application using Python, Flask, and Gitpod, implementing backend services and database-driven functionality.",
-      "Integrated AWS services including Cognito, RDS, Lambda, IAM, CloudWatch, and Honeycomb to enable authentication, access control, event-driven notifications, application monitoring, distributed tracing, and alerting.",
+      "Built a full-stack platform using Next.js, TypeScript, PostgreSQL, Prisma, Redis, RabbitMQ, and Cloudinary with role-based access control (RBAC).",
+      "Engineered cart/order management, bulk CSV uploads, automated PDF catalog generation, asynchronous email notifications, and JWT authentication.",
     ],
     features: [
-      "Cloud-native web application",
-      "Backend services",
-      "Database-driven functionality",
-      "Authentication",
-      "Access control",
-      "Event-driven notifications",
-      "Application monitoring",
-      "Distributed tracing and alerting",
+      "Role-Based Access Control (RBAC)",
+      "Cart & Order Management",
+      "Bulk Product Uploads",
+      "PDF Catalog Generation",
+      "Asynchronous RabbitMQ Queues",
+      "Redis Caching Layer",
+      "Cloudinary Media Pipeline",
+      "JWT Authentication",
     ],
     tech: [
-      { name: "Python", logo: "python" },
-      { name: "Flask", logo: "flask" },
-      { name: "Gitpod" },
-      { name: "AWS", logo: "aws" },
-      { name: "Cognito" },
-      { name: "RDS" },
-      { name: "Lambda" },
-      { name: "IAM" },
-      { name: "CloudWatch" },
-      { name: "Honeycomb" },
+      { name: "Next.js", logo: "nextjs" },
+      { name: "TypeScript", logo: "typescript" },
+      { name: "PostgreSQL", logo: "postgresql" },
+      { name: "Prisma", logo: "prisma" },
+      { name: "Redis", logo: "redis" },
+      { name: "RabbitMQ", logo: "rabbitmq" },
+      { name: "Cloudinary" },
+      { name: "Tailwind CSS", logo: "tailwindcss" },
     ],
-    link: { href: "https://github.com/ajaysrinic/aws-bootcamp-cruddur-2023", label: "View on GitHub" },
-    visual: "blog",
+    link: { href: "https://ssmma.shop/", label: "Visit ssmma.shop" },
+    visual: "ssmma",
   },
   {
-    id: "alexa",
+    id: "web-dev-explorer",
     number: "02",
-    title: "Alexa voice-based Tourist Assistant",
-    date: "Feb 2020",
-    kicker: "Conversational travel assistant",
+    title: "Web Dev Explorer — Developer Reference & Playground",
+    date: "2024",
+    kicker: "Interactive learning platform & live runner",
     description:
-      "Designed and developed a conversational travel assistant using Voiceflow, creating intuitive voice interaction flows and seamless user experiences.",
+      "Interactive developer reference covering 150+ concepts across React, Next.js, JavaScript, and TypeScript, with a live in-browser code playground.",
     bullets: [
-      "Designed and developed a conversational travel assistant using Voiceflow, creating intuitive voice interaction flows and seamless user experiences.",
-      "Integrated third-party Webhook APIs and AWS Lambda functions to deliver dynamic travel information, including hotel reviews, destination recommendations, visa policies, and tourism insights based on user queries.",
+      "Interactive developer reference covering 150+ concepts (React, Next.js, JS, TypeScript) with a live code playground.",
+      "Engineered with Next.js 14 App Router, TypeScript, and Tailwind CSS, deployed on Vercel for instant execution and interactive learning.",
     ],
     features: [
-      "Conversational travel assistant",
-      "Voice interaction flows",
-      "Seamless user experiences",
-      "Third-party Webhook APIs",
-      "AWS Lambda functions",
-      "Hotel reviews",
-      "Destination recommendations",
-      "Visa policies and tourism insights",
+      "150+ Web Development Concepts",
+      "Interactive Live Code Playground",
+      "React & Next.js Design Patterns",
+      "TypeScript Typing Deep-Dive",
+      "Real-time In-Browser Code Execution",
+      "Syntax Highlighting & Instant Search",
+      "App Router Architecture",
+      "Vercel Edge Deployment",
     ],
-    tech: [{ name: "Voiceflow" }, { name: "Webhook APIs" }, { name: "AWS Lambda", logo: "aws" }],
-    link: {
-      href: "https://docs.google.com/presentation/d/1Jp8dvbxxDoNAjT8eSt9kgSikM1WCNHDw-9_CKx6vQsQ/edit?usp=sharing",
-      label: "View presentation",
-    },
-    visual: "voice",
+    tech: [
+      { name: "Next.js 14", logo: "nextjs" },
+      { name: "TypeScript", logo: "typescript" },
+      { name: "Tailwind CSS", logo: "tailwindcss" },
+      { name: "React", logo: "react" },
+      { name: "Vercel", logo: "vercel" },
+    ],
+    link: { href: "https://www.chaitanyakumar.online/", label: "Visit chaitanyakumar.online" },
+    visual: "explorer",
   },
   {
-    id: "iot",
+    id: "analyzeit",
     number: "03",
-    title: "Home Automation using IoT",
-    date: "March 2018",
-    kicker: "IoT-based automation",
+    title: "AnalyzeIT — Enterprise Analytics & Reporting Engine",
+    date: "2026",
+    kicker: "High-density consumer analytics web app",
     description:
-      "Developed an IoT-based home automation system using Arduino and Blynk, enabling remote control of electrical appliances through a smartphone application and API integrations.",
+      "Enterprise web application developed using Next.js, React, TypeScript, and Ant Design to analyze high-density consumer product sales and customer sentiment data.",
     bullets: [
-      "Developed an IoT-based home automation system using Arduino and Blynk, enabling remote control of electrical appliances through a smartphone application and API integrations.",
-      "Implemented voice-controlled automation using IFTTT and Google Assistant, enhancing user experience through hands-free appliance management and smart home functionality.",
+      "Built a client-side analytics engine supporting all types of analysis and regression, with 10+ interactive Chart.js visualizations for business reporting.",
+      "Architected the application's core state management and typed domain model, enabling a scalable 9+ tab workflow for reports, datasets, and statistical analyses.",
     ],
     features: [
-      "IoT-based home automation",
-      "Arduino and Blynk",
-      "Remote control of electrical appliances",
-      "Smartphone application",
-      "API integrations",
-      "Voice-controlled automation",
-      "IFTTT and Google Assistant",
-      "Hands-free appliance management",
+      "Client-side Analytics Engine",
+      "Regression Modeling",
+      "10+ Chart.js Visualizations",
+      "9+ Tab Analytical Workflow",
+      "SheetJS Excel Import/Export",
+      "Real-time Survey Synchronization",
+      "Azure AD SSO (MSAL)",
+      "High-density Data Rendering",
     ],
-    tech: [{ name: "Arduino", logo: "arduino" }, { name: "Blynk" }, { name: "IFTTT" }, { name: "Google Assistant" }],
-    visual: "iot",
+    tech: [
+      { name: "Next.js", logo: "nextjs" },
+      { name: "React", logo: "react" },
+      { name: "TypeScript", logo: "typescript" },
+      { name: "Chart.js" },
+      { name: "Ant Design" },
+      { name: "Azure", logo: "azure" },
+      { name: "SheetJS" },
+    ],
+    visual: "analyzeit",
   },
 ];
 
@@ -340,103 +377,93 @@ export interface Certification {
   index: string;
   title: string;
   date: string;
-  url: string;
-  /** Issuer, when known (derived from the title, plus HashiCorp for Terraform). */
+  url?: string;
   issuer?: string;
 }
 const CERT_RAW: Omit<Certification, "index">[] = [
-  { id: "terraform", title: "Terraform Certified Associate", issuer: "HashiCorp", date: "Nov 2025", url: "https://www.credly.com/badges/28af38c2-9977-47c1-b129-b0e6dda5d729/public_url" },
-  { id: "mckinsey", title: "Forward Learning Program – McKinsey & Company", issuer: "McKinsey & Company", date: "Jul 2025", url: "https://www.credly.com/badges/9d6e515a-3eac-4953-bca9-dde2c7057322/public_url" },
-  { id: "mysql", title: "Oracle MySQL Implementation Associate", issuer: "Oracle", date: "Jul 2025", url: "https://www.linkedin.com/posts/ajaysrinic_mysql-oraclecertification-dba-activity-7351201151259693056-prWQ?utm_source=share&utm_medium=member_desktop&rcm=ACoAACOrnI8BO2fLCVFZUyL8xe1iXEK-eLyYZaI" },
-  { id: "exampro", title: "AWS Cloud Project Bootcamp – ExamPro", issuer: "ExamPro", date: "Sep 2023", url: "https://app.exampro.co/validate/certificate/KbFoaSAJEKiTR7-c74xB0Q1afbf" },
-  { id: "az900", title: "Microsoft Azure AZ 900", issuer: "Microsoft", date: "Mar 2023", url: "https://www.credly.com/badges/b08211a8-a380-4c66-b868-73133794fbd9/linked_in_profile" },
-  { id: "awscp", title: "AWS Cloud Practitioner", issuer: "AWS", date: "Dec 2022", url: "https://www.credly.com/badges/e9fd7851-8d5f-496c-b447-7ca8e6ec0d58/public_url" },
+  { id: "sql", title: "SQL Beginner to Advance", issuer: "SQL Mastery", date: "2026" },
+  { id: "devops", title: "Devops Implementation", issuer: "DevOps & Cloud", date: "2025" },
+  { id: "genai", title: "Gen AI L1 & L2", issuer: "Generative AI", date: "2025" },
+  { id: "copilot", title: "GitHub Copilot", issuer: "GitHub", date: "2025" },
+  { id: "awscp", title: "AWS Cloud Practitioner", issuer: "Amazon Web Services (AWS)", date: "2023" },
+  { id: "az900", title: "Azure Fundamentals", issuer: "Microsoft", date: "2022" },
 ];
 export const CERTIFICATIONS: Certification[] = CERT_RAW.map((c, i) => ({ ...c, index: String(i + 1).padStart(2, "0") }));
 
 /* ---------- Achievements ---------- */
 export interface Achievement {
   id: string;
-  /** "01" .. "07" */
   index: string;
   label: string;
   caption: string;
   detail: string;
-  /** Logo key: lnrs, github-actions, srm, medal (concept), linux, jenkins, azure */
   logo: string;
-  /** Soft glow behind the logo, rgba. */
   tint: string;
   number?: number;
   prefix?: string;
   suffix?: string;
-  /** Small unit text beside the number, e.g. "CAD / month". */
   unit?: string;
 }
 const ACH_RAW: Omit<Achievement, "index">[] = [
   {
-    id: "spotlight",
-    label: "Spotlight Award",
-    caption: "Recognized for delivering high-impact automation and observability solutions",
-    detail: "Values: Collaborate to Deliver, Act with Agility, Drive Commercial Edge",
-    logo: "lnrs",
-    tint: "rgba(237,28,36,0.16)",
+    id: "scale",
+    label: "Citizen portal scale",
+    caption: "Monthly users served across Ontario on Next.js portals",
+    detail: "SSR and middleware architecture at Ministry of Transportation, Ontario",
+    logo: "nextjs",
+    tint: "rgba(0,0,0,0.12)",
+    number: 1,
+    suffix: "M+",
   },
   {
-    id: "deploy",
-    label: "Deployment acceleration",
-    caption: "Reduction in deployment time via GitHub Actions CI/CD",
-    detail: "Windows IIS .NET apps, PRDE project, with JFrog Artifactory and Jenkins",
-    logo: "github-actions",
-    tint: "rgba(33,114,229,0.16)",
-    number: 70,
+    id: "monitoring",
+    label: "Operational automation",
+    caption: "Reduction in manual operational monitoring effort",
+    detail: "Automated via Control-M, Task Scheduler, and PowerShell at Suncorp Insurance",
+    logo: "powershell",
+    tint: "rgba(45,123,229,0.16)",
+    number: 50,
     suffix: "%",
   },
   {
-    id: "beacon",
-    label: "Inspiration Beacon Award",
-    caption: "Honored for a well-received guest lecture on DevOps/SRE fundamentals and career guidance",
-    detail: "Motivating students and sharing practical industry insights",
-    logo: "srm",
-    tint: "rgba(18,70,160,0.16)",
+    id: "charts",
+    label: "Analytics visualizations",
+    caption: "Interactive Chart.js visualizations & regression analyses",
+    detail: "Client-side analytics engine built for AnalyzeIT at Nestle",
+    logo: "react",
+    tint: "rgba(97,218,251,0.16)",
+    number: 10,
+    suffix: "+",
   },
   {
-    id: "skills2020",
-    label: "India Skills 2020",
-    caption: "Runner-up at the state-level competition",
-    detail: "Recognized by the District Collectorate of Tiruvallur",
+    id: "concepts",
+    label: "Developer reference",
+    caption: "Full-stack web development concepts covered with live playground",
+    detail: "Interactive guide across React, Next.js, and TypeScript (Web Dev Explorer)",
+    logo: "typescript",
+    tint: "rgba(49,120,198,0.16)",
+    number: 150,
+    suffix: "+",
+  },
+  {
+    id: "accessibility",
+    label: "Accessibility compliance",
+    caption: "WCAG 2.1 AA compliant components passing government audits",
+    detail: "Semantic HTML and ARIA roles for full assistive-technology support",
     logo: "medal",
-    tint: "rgba(13,13,13,0.08)",
-  },
-  {
-    id: "uptime",
-    label: "Uptime",
-    caption: "Increase in uptime managing Linux production servers 24x7",
-    detail: "Live environment at TCS",
-    logo: "linux",
-    tint: "rgba(250,190,20,0.18)",
-    number: 20,
+    tint: "rgba(16,185,129,0.16)",
+    number: 100,
     suffix: "%",
   },
   {
-    id: "releases",
-    label: "Faster releases",
-    caption: "Reduction in deployment times",
-    detail: "CI/CD best practices with Jenkins and Git at TCS",
-    logo: "jenkins",
-    tint: "rgba(215,51,39,0.14)",
-    number: 40,
-    suffix: "%",
-  },
-  {
-    id: "savings",
-    label: "Cost savings",
-    caption: "Saved through Azure optimisation: automation, monitoring and scaling",
-    detail: "Azure cloud environments at TCS",
-    logo: "azure",
-    tint: "rgba(0,120,212,0.16)",
-    number: 2500,
-    prefix: "$",
-    unit: "CAD / month",
+    id: "workflow",
+    label: "Analytical workflow tabs",
+    caption: "Scalable multi-tab workflow for reports, datasets, and regressions",
+    detail: "Architected core state management & typed domain model at Nestle",
+    logo: "docker",
+    tint: "rgba(36,150,237,0.16)",
+    number: 9,
+    suffix: "+",
   },
 ];
 export const ACHIEVEMENTS: Achievement[] = ACH_RAW.map((a, i) => ({ ...a, index: String(i + 1).padStart(2, "0") }));

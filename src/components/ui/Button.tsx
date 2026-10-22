@@ -27,7 +27,7 @@ export default function Button({
         className={cls}
         onClick={onClick as MouseEventHandler<HTMLAnchorElement> | undefined}
         aria-label={ariaLabel}
-        download={download === true ? "" : download || undefined}
+        download={download ? (typeof download === "string" ? download : "Chaitanya-Kumar-Batchu-Resume.pdf") : undefined}
         {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
       >
         {children}

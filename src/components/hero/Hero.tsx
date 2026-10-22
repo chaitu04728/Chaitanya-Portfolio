@@ -83,13 +83,13 @@ export default function Hero() {
             {PROFILE.role} <span aria-hidden="true">·</span> {PROFILE.company}
           </p>
           <h1 className="hero-h1">
-            <span className="rv-mask" style={{ ["--i" as string]: 1 }}><span>Site Reliability</span></span>
-            <span className="rv-mask" style={{ ["--i" as string]: 2 }}><span><span className="accent">Engineer.</span></span></span>
+            <span className="rv-mask" style={{ ["--i" as string]: 1 }}><span>Full Stack</span></span>
+            <span className="rv-mask" style={{ ["--i" as string]: 2 }}><span><span className="accent">Developer.</span></span></span>
           </h1>
           <div className="hero-cta rv" style={{ ["--i" as string]: 3 }}>
             <Button href="#work" onClick={go("work")}>Explore work</Button>
             <Button href="#contact" onClick={go("contact")} variant="secondary">Let&apos;s talk</Button>
-            <Button href={PROFILE.resume} variant="secondary" download="Ajay-B-Resume.pdf">Résumé ↓</Button>
+            <Button href={PROFILE.resume} variant="secondary" download="Chaitanya-Kumar-Batchu-Resume.pdf" external>Résumé ↓</Button>
           </div>
         </div>
 
@@ -130,8 +130,8 @@ export default function Hero() {
       <style>{`
         .hero { position: relative; overflow: clip; padding-top: calc(var(--nav-h) + 8px); min-height: 100svh; }
         .hero-ghost { position: absolute; left: 50%; top: calc(var(--nav-h) + 2svh); transform: translateX(-50%); z-index: 0;
-          font-weight: 800; letter-spacing: -0.05em; line-height: .8; font-size: clamp(110px, 24vw, 380px); color: #e4e1da;
-          user-select: none; pointer-events: none; white-space: nowrap; }
+          font-weight: 800; letter-spacing: -0.04em; line-height: .8; font-size: clamp(52px, 11vw, 180px); color: #e4e1da;
+          user-select: none; pointer-events: none; white-space: nowrap; max-width: 96vw; text-align: center; }
         .hero-grid { position: relative; width: 100%; max-width: calc(var(--max) + var(--gutter) * 2); margin-inline: auto;
           padding-inline: var(--gutter); display: grid; grid-template-columns: 1fr; justify-items: center; }
         .hero-stage { position: relative; order: 1; width: min(100%, calc(62svh * .8)); }

@@ -5,40 +5,74 @@ import TechLogo from "@/components/ui/TechLogo";
 import { PROJECTS, type Project } from "@/lib/data";
 
 function Visual({ kind }: { kind: Project["visual"] }) {
-  if (kind === "blog")
+  if (kind === "ssmma")
     return (
-      <div className="mu mu-blog" aria-hidden="true">
-        <div className="mu-bar"><i /><i /><i /><b /></div>
-        <div className="mu-compose"><span /><em>Post</em></div>
-        {[0, 1, 2].map((n) => (
-          <div className="mu-post" key={n} style={{ ["--n" as string]: n }}>
-            <i className="mu-av" />
-            <div><b /><span /><span /></div>
+      <div className="mu mu-ssmma" aria-hidden="true">
+        <div className="mu-bar"><i /><i /><i /><b /><em>Cart (3)</em></div>
+        <div className="mu-shop-grid">
+          <div className="mu-card">
+            <div className="mu-thumb"><span /></div>
+            <div className="mu-meta"><b /><span /></div>
+            <div className="mu-badge">In stock</div>
           </div>
-        ))}
+          <div className="mu-card">
+            <div className="mu-thumb"><span /></div>
+            <div className="mu-meta"><b /><span /></div>
+            <div className="mu-badge">RBAC Active</div>
+          </div>
+        </div>
+        <div className="mu-order-strip">
+          <div><b /><span>Order #1042 · Dispatched</span></div>
+          <em>PDF Catalog ↓</em>
+        </div>
       </div>
     );
-  if (kind === "voice")
+  if (kind === "explorer")
     return (
-      <div className="mu mu-voice" aria-hidden="true">
-        <div className="mu-mic"><i /><i /><i /><span /></div>
-        <div className="mu-bub l"><span /><span /></div>
-        <div className="mu-bub r"><span /></div>
-        <div className="mu-cards"><div><span /><b /></div><div><span /><b /></div><div><span /><b /></div></div>
+      <div className="mu mu-explorer" aria-hidden="true">
+        <div className="mu-bar"><i /><i /><i /><b /><em>Live Runner</em></div>
+        <div className="mu-code">
+          <div className="mu-tabs"><b>App.tsx</b><span>Preview</span><span>Docs</span></div>
+          <div className="mu-lines">
+            <p><i className="kw"/> <i className="fn"/>() &#123;</p>
+            <p>&nbsp;&nbsp;<i className="kw"/> [count, setCount] = useState(0);</p>
+            <p>&nbsp;&nbsp;<i className="ret"/> &lt;<i className="tag"/> onClick=&#123;() =&gt; ...&#125;&gt;</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;Count: &#123;count&#125;</p>
+            <p>&nbsp;&nbsp;&lt;/<i className="tag"/>&gt;;</p>
+            <p>&#125;</p>
+          </div>
+        </div>
+        <div className="mu-output">
+          <span>Interactive Preview</span>
+          <button type="button">Click: 42</button>
+        </div>
       </div>
     );
   return (
-    <div className="mu mu-iot" aria-hidden="true">
-      <div className="mu-bar"><i /><i /><i /><b /></div>
-      <div className="mu-tiles">
-        {[0, 1, 2, 3].map((n) => (
-          <div key={n} className={n % 2 === 0 ? "on" : ""}>
-            <span>Appliance {String(n + 1).padStart(2, "0")}</span>
-            <i><u /></i>
-          </div>
-        ))}
+    <div className="mu mu-analyzeit" aria-hidden="true">
+      <div className="mu-bar"><i /><i /><i /><b /><em>9+ Tabs</em></div>
+      <div className="mu-tab-strip">
+        <span className="on">Overview</span>
+        <span>Regression</span>
+        <span>Datasets</span>
+        <span>Reports</span>
       </div>
-      <div className="mu-voice-btn"><i />Voice</div>
+      <div className="mu-stats">
+        <div><small>Sentiment</small><b>94.8%</b></div>
+        <div><small>R² Score</small><b>0.912</b></div>
+        <div><small>Export</small><b>SheetJS</b></div>
+      </div>
+      <div className="mu-chart">
+        <div className="mu-bars">
+          <i style={{ height: "45%" }} />
+          <i style={{ height: "70%" }} />
+          <i style={{ height: "55%" }} />
+          <i style={{ height: "90%" }} />
+          <i style={{ height: "65%" }} />
+          <i style={{ height: "100%" }} />
+          <i style={{ height: "80%" }} />
+        </div>
+      </div>
     </div>
   );
 }
@@ -167,33 +201,44 @@ const css = `
 .mu-bar{display:flex;gap:5px;align-items:center}
 .mu-bar i{width:8px;height:8px;border-radius:50%;background:#d6d3cd}
 .mu-bar b{margin-left:auto;width:34%;height:7px}
-.mu-compose{display:flex;gap:8px;align-items:center;padding:10px;border-radius:10px;box-shadow:inset 0 0 0 1px var(--line)}
-.mu-compose span{flex:1;height:8px}
-.mu-compose em{font-style:normal;font-size:11px;font-weight:600;background:var(--ink);color:#fff;border-radius:999px;padding:4px 12px}
-.mu-post{display:flex;gap:10px;align-items:flex-start;padding:8px 2px;border-top:1px solid var(--line)}
-.mu-post>div{flex:1;display:grid;gap:6px}
-.mu-av{width:26px;height:26px;border-radius:50%;background:#bdbab4;flex:none}
-.mu-post:nth-of-type(odd) .mu-av{background:#8c8982}
-.mu-voice{justify-items:center;gap:12px;padding:20px}
-.mu-mic{position:relative;width:76px;height:76px;display:grid;place-items:center}
-.mu-mic span{width:40px;height:40px;border-radius:50%;background:var(--ink);position:relative;z-index:1}
-.mu-mic i{position:absolute;inset:0;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(13,13,13,.25);animation:muRing 3s var(--ease) infinite}
-.mu-mic i:nth-child(2){animation-delay:1s}.mu-mic i:nth-child(3){animation-delay:2s}
-@keyframes muRing{0%{transform:scale(.5);opacity:1}100%{transform:scale(1.25);opacity:0}}
-.mu-bub{display:grid;gap:6px;padding:10px 12px;border-radius:14px;width:70%}
-.mu-bub.l{justify-self:start;background:#efede8;border-bottom-left-radius:4px}
-.mu-bub.r{justify-self:end;background:#d6d3cd;border-bottom-right-radius:4px;width:46%}
-.mu-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;width:100%}
-.mu-cards>div{padding:9px;border-radius:10px;box-shadow:inset 0 0 0 1px var(--line);display:grid;gap:6px}
-.mu-tiles{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.mu-tiles>div{display:grid;gap:10px;padding:12px;border-radius:12px;background:#f1efea;font-size:11px;font-weight:600;color:var(--ink-2)}
-.mu .mu-tiles span{height:auto;background:none;border-radius:0}
-.mu-tiles>div.on{background:var(--ink);color:#fff}
-.mu-tiles i{width:34px;height:18px;border-radius:999px;background:#c9c6c0;position:relative;display:block}
-.mu-tiles u{position:absolute;top:2px;left:2px;width:14px;height:14px;border-radius:50%;background:#fff;transition:transform .5s var(--ease)}
-.mu-tiles .on i{background:#fff}.mu-tiles .on u{background:var(--ink);transform:translateX(16px)}
-.mu-voice-btn{display:flex;align-items:center;gap:8px;justify-content:center;padding:10px;border-radius:999px;box-shadow:inset 0 0 0 1px rgba(13,13,13,.25);font-size:12px;font-weight:600}
-.mu-voice-btn i{width:8px;height:8px;border-radius:50%;background:var(--ink)}
+.mu-bar em{font-style:normal;font-size:10.5px;font-weight:600;background:var(--ink);color:#fff;border-radius:999px;padding:3px 10px;margin-left:auto}
+
+.mu-shop-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.mu-card{padding:8px;border-radius:10px;box-shadow:inset 0 0 0 1px var(--line);display:grid;gap:6px;background:#faf9f7}
+.mu-thumb{height:46px;border-radius:6px;background:#e8e6e1;display:grid;place-items:center}
+.mu-thumb span{width:50%;height:6px}
+.mu-meta b{width:70%;height:7px}
+.mu-meta span{width:45%;height:6px;margin-top:4px}
+.mu-badge{font-size:9.5px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--mute);padding-top:2px}
+.mu-order-strip{display:flex;align-items:center;justify-content:space-between;padding:8px 10px;border-radius:8px;background:#f3f1ec;font-size:11px}
+.mu-order-strip b{width:70px;height:6px;margin-bottom:3px}
+.mu-order-strip span{width:120px;height:5px}
+.mu-order-strip em{font-style:normal;font-size:10.5px;font-weight:600;color:var(--ink)}
+
+.mu-code{background:#181818;color:#e5e5e5;border-radius:10px;overflow:hidden;padding-bottom:8px}
+.mu-tabs{display:flex;gap:8px;padding:6px 10px;background:#0d0d0d;font-size:10px}
+.mu-tabs b{background:none;color:#fff;width:auto;height:auto;font-size:10px}
+.mu-tabs span{background:none;color:#888;width:auto;height:auto;font-size:10px}
+.mu-lines{padding:8px 10px;font-family:var(--f-mono),monospace;font-size:9.5px;line-height:1.5;color:#aaa}
+.mu-lines p{margin:0}
+.mu-lines .kw{display:inline-block;width:20px;height:5px;background:#c678dd;border-radius:2px}
+.mu-lines .fn{display:inline-block;width:26px;height:5px;background:#61afef;border-radius:2px}
+.mu-lines .ret{display:inline-block;width:18px;height:5px;background:#e06c75;border-radius:2px}
+.mu-lines .tag{display:inline-block;width:18px;height:5px;background:#e5c07b;border-radius:2px}
+.mu-output{display:flex;align-items:center;justify-content:space-between;padding:8px 10px;border-radius:8px;box-shadow:inset 0 0 0 1px var(--line);font-size:11px}
+.mu-output span{width:auto;height:auto;background:none;font-weight:600;color:var(--mute)}
+.mu-output button{font-size:11px;font-weight:600;background:var(--ink);color:#fff;padding:4px 12px;border-radius:6px}
+
+.mu-tab-strip{display:flex;gap:4px;overflow:hidden;font-size:10px;font-weight:600}
+.mu-tab-strip span{width:auto;height:auto;background:#f0eee9;padding:4px 8px;border-radius:6px;color:var(--mute)}
+.mu-tab-strip span.on{background:var(--ink);color:#fff}
+.mu-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.mu-stats>div{padding:6px 8px;border-radius:8px;background:#f5f3ee}
+.mu-stats small{display:block;font-size:9px;text-transform:uppercase;letter-spacing:.05em;color:var(--mute)}
+.mu-stats b{width:auto;height:auto;background:none;font-size:13px;font-weight:700;color:var(--ink);margin-top:2px}
+.mu-chart{height:68px;border-radius:8px;box-shadow:inset 0 0 0 1px var(--line);padding:8px 10px 4px;display:flex;align-items:flex-end}
+.mu-bars{display:flex;width:100%;height:100%;align-items:flex-end;justify-content:space-between;gap:6px}
+.mu-bars i{flex:1;background:linear-gradient(180deg,var(--ink),#777);border-radius:3px 3px 0 0}
 
 @media (max-width:1180px){
  .wk-body{padding:26px;gap:20px}

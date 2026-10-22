@@ -35,8 +35,8 @@ jobs:
           fi
       - run: npm run build
         env:
-          NEXT_PUBLIC_SITE_URL: https://ajay-bobbili.github.io
-          NEXT_PUBLIC_BASE_PATH: /my-portfolio
+          NEXT_PUBLIC_SITE_URL: https://chaitu04728.github.io
+          NEXT_PUBLIC_BASE_PATH: /Chaitanya-Portfolio
       - uses: actions/upload-pages-artifact@v3
         with:
           path: out

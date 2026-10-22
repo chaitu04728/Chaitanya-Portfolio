@@ -1,12 +1,12 @@
-# Talking-Video Portfolio
+# Chaitanya Kumar Batchu — Portfolio
 
-[**Live demo →**](https://ajay-bobbili.github.io/my-portfolio/)
+[**Live demo →**](https://chaitu04728.github.io/Chaitanya-Portfolio/)
 
 ![Preview](public/og.jpg)
 
-A quiet, premium personal portfolio where a **3D cartoon version of you introduces yourself by video** on a calm white page. This repo is Ajay B's portfolio, and it is built to be **forked and made your own**.
+A quiet, premium personal portfolio with an interactive 3D hero video, hanging lanyard ID card, periodic table of skills, project accordion with custom mini-UIs, and pinned metrics gallery.
 
-Built with Next.js 15 (App Router), React 19, TypeScript, Tailwind CSS 4 and Lenis. All content lives in one file, `src/lib/data.ts`. About 137 kB of first-load JavaScript, no WebGL, no GSAP, no external scripts at runtime.
+Built with Next.js 15 (App Router), React 19, TypeScript, Tailwind CSS 4 and Lenis. All content lives in `src/lib/data.ts`.
 
 ## Highlights
 
