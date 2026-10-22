@@ -28,6 +28,18 @@ export const CONCEPT: Record<string, ReactElement> = {
       <path d="M11 24c0 2.8 5.8 5 13 5s13-2.2 13-5" />
     </g>
   ),
+  html5: (
+    <g {...P}>
+      <path d="M11 8l2.6 28 10.4 4 10.4-4 2.6-28H11z" />
+      <path d="M17 16h14M17 23h13l-1 9-5 2-5-2-.4-4" />
+    </g>
+  ),
+  css3: (
+    <g {...P}>
+      <path d="M11 8l2.6 28 10.4 4 10.4-4 2.6-28H11z" />
+      <path d="M31 16H17.5l.5 6h12l-1 9-5 2-5-2-.4-4" />
+    </g>
+  ),
   servicenow: (
     <g {...P}>
       <circle cx="24" cy="24" r="15" />

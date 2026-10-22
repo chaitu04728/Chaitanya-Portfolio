@@ -2,7 +2,7 @@
 
 [**Live demo →**](https://chaitu04728.github.io/Chaitanya-Portfolio/)
 
-![Preview](public/og.jpg)
+![Chaitanya Kumar Batchu — Portfolio Preview](./public/og.jpg)
 
 A quiet, premium personal portfolio with an interactive 3D hero video, hanging lanyard ID card, periodic table of skills, project accordion with custom mini-UIs, and pinned metrics gallery.
 
@@ -69,13 +69,13 @@ POSE AND POSITION:
 - Only allow natural small movements required for speaking.
 
 PERFORMANCE:
-The character is introducing herself directly to the camera.
+The character is introducing himself directly to the camera.
 
 EXACT SPOKEN SCRIPT:
-"Hi, I'm Lohitha. I'm a full-stack developer. I build responsive web applications, interactive websites, and AI-powered platforms."
+"Hi, I'm Chaitanya. I craft modern full-stack web applications and AI-assisted digital experiences. Explore my work below."
 
 VOICE:
-- Natural female voice.
+- Natural male voice.
 - Friendly, confident, professional tone.
 - Natural speaking speed.
 - Clear pronunciation.
@@ -274,13 +274,15 @@ scripts/         build-hero-assets.py
 docs/            MASTER_PROMPT.md
 ```
 
-## Credits and licences
+## Credits and acknowledgments
 
-- **Idea and prompts:** the "talking-video portfolio" concept, the character and video prompts, and the master prompt were created and open-sourced by **Lohitha Damisetti** ([Instagram: @SL_Tech_Journal](https://www.instagram.com/SL_Tech_Journal), [LinkedIn](https://www.linkedin.com/in/lohitha-damisetti-2bb36829a/)).
-- **Logos:** `public/logos/*.svg` are devicon "original" icons (MIT, see `public/logos/LICENSE-devicon.txt`). Trademarks belong to their owners. `lnrs.webp` (LexisNexis Risk Solutions) and `srm.webp` (SRM Institute of Science and Technology) were supplied by the site owner and are used for identification only.
-- **Fonts:** Inter Tight, Instrument Serif and JetBrains Mono (SIL Open Font License), self-hosted in `src/fonts` with their licences.
-- **Built with** Next.js, React, Tailwind CSS and Lenis, with help from Claude Code.
+- **Base repository & template:** Customized from [Ajay Bobbili's Portfolio](https://github.com/ajay-bobbili/my-portfolio) (`ajay-bobbili/my-portfolio`).
+- **Concept and prompts:** The "talking-video portfolio" concept and prompts were created and open-sourced by **Lohitha Damisetti** ([Instagram: @SL_Tech_Journal](https://www.instagram.com/SL_Tech_Journal), [LinkedIn](https://www.linkedin.com/in/lohitha-damisetti-2bb36829a/)).
+- **Logos:** `public/logos/*.svg` are devicon "original" icons (MIT, see `public/logos/LICENSE-devicon.txt`). Trademarks belong to their respective owners.
+- **Fonts:** Inter Tight, Instrument Serif and JetBrains Mono (SIL Open Font License), self-hosted in `src/fonts`.
+- **Built with:** Next.js 15, React 19, TypeScript, Tailwind CSS, and Lenis.
 
 ---
 
-**Credits to Lohitha Damisetti.**
+**Special thanks to [Ajay Bobbili](https://github.com/ajay-bobbili/my-portfolio) for open-sourcing the original portfolio codebase and [Lohitha Damisetti](https://www.linkedin.com/in/lohitha-damisetti-2bb36829a/) for the video portfolio concept.**
+
