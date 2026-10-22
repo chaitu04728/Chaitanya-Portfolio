@@ -102,8 +102,8 @@ export default function Hero() {
             preload="auto"
             aria-label={`Animated portrait of ${PROFILE.name} introducing himself`}
           >
-            <source src={asset("/hero/hero.webm")} type="video/webm" />
-            <source src={asset("/hero/hero.mp4")} type="video/mp4" />
+            <source src={asset("/hero/Intro.webm")} type="video/webm" />
+            <source src={asset("/hero/Intro.mp4")} type="video/mp4" />
           </video>
           <button
             type="button"
