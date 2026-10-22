@@ -5,7 +5,7 @@ import { PROFILE } from "@/lib/data";
 
 const FACTS: { k: string; v: string; href?: string }[] = [
   { k: "Current role", v: `${PROFILE.role}, ${PROFILE.company}` },
-  { k: "Experience", v: "4.8 years designing scalable web apps" },
+  { k: "Experience", v: "4.8 years designing scalable full stack apps" },
   { k: "Education", v: "B. Tech in CSE, Presidency University Bangalore (2022)" },
   { k: "Location", v: PROFILE.location },
   { k: "Email", v: PROFILE.email, href: `mailto:${PROFILE.email}` },
@@ -44,7 +44,7 @@ export default function About() {
           </dl>
           <figure className="about-q rv" style={{ ["--i" as string]: 6 }}>
             <blockquote>
-              Engineered WCAG 2.1 AA compliant citizen portal serving <span className="accent">1M+ monthly users.</span>
+              Driven by clean typed architecture, extreme performance, and software that <span className="accent">just works.</span>
             </blockquote>
           </figure>
         </aside>

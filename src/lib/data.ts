@@ -335,40 +335,7 @@ export const PROJECTS: Project[] = [
     ],
     link: { href: "https://www.chaitanyakumar.online/", label: "Visit chaitanyakumar.online" },
     visual: "explorer",
-  },
-  {
-    id: "analyzeit",
-    number: "03",
-    title: "AnalyzeIT — Enterprise Analytics & Reporting Engine",
-    date: "2026",
-    kicker: "High-density consumer analytics web app",
-    description:
-      "Enterprise web application developed using Next.js, React, TypeScript, and Ant Design to analyze high-density consumer product sales and customer sentiment data.",
-    bullets: [
-      "Built a client-side analytics engine supporting all types of analysis and regression, with 10+ interactive Chart.js visualizations for business reporting.",
-      "Architected the application's core state management and typed domain model, enabling a scalable 9+ tab workflow for reports, datasets, and statistical analyses.",
-    ],
-    features: [
-      "Client-side Analytics Engine",
-      "Regression Modeling",
-      "10+ Chart.js Visualizations",
-      "9+ Tab Analytical Workflow",
-      "SheetJS Excel Import/Export",
-      "Real-time Survey Synchronization",
-      "Azure AD SSO (MSAL)",
-      "High-density Data Rendering",
-    ],
-    tech: [
-      { name: "Next.js", logo: "nextjs" },
-      { name: "React", logo: "react" },
-      { name: "TypeScript", logo: "typescript" },
-      { name: "Chart.js" },
-      { name: "Ant Design" },
-      { name: "Azure", logo: "azure" },
-      { name: "SheetJS" },
-    ],
-    visual: "analyzeit",
-  },
+  }
 ];
 
 /* ---------- Certifications ---------- */

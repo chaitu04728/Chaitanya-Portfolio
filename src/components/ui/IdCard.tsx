@@ -24,7 +24,7 @@ const BACK_LINES = [
   "Full Stack Developer at IBM (Client: Nestle, Europe)",
   "4.8 years designing scalable enterprise web apps",
   "B. Tech in Computer Science, Presidency University Bangalore",
-  "Projects: SSMMA Product System, Web Dev Explorer, AnalyzeIT",
+  "Projects: SSMMA Product System, Web Dev Explorer",
   "AWS Cloud Practitioner, Azure Fundamentals, GitHub Copilot",
 ];
 
